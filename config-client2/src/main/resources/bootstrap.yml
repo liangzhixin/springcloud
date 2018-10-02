@@ -1,0 +1,52 @@
+spring:
+  profiles: dev
+  application:
+    name: config-client2
+  cloud:
+    config:
+      label: branch-dev
+      discovery:
+        enabled: true
+        serviceId: config-server2
+server:
+  port: 1015
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://10.101.90.78:1001/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
+
+#encrypt:
+#  key:
+---
+spring:
+  profiles: test
+  application:
+    name: config-client2
+  cloud:
+    config:
+      label: branch-dev
+      discovery:
+        enabled: true
+        serviceId: config-server2
+
+server:
+  port: 1015
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://l0.101.90.78:1001/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
+
